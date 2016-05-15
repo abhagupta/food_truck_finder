@@ -17,7 +17,7 @@ export function fetchTrucks(value){
       const config = {
           headers: {'X-App-Token': API_KEY}
         };
-      const request = axios.get(url, config);
+    
 
   })
   return {

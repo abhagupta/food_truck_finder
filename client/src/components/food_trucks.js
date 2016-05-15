@@ -8,7 +8,7 @@ import GoogleMapsTest from './google_map_test';
  class FoodTrucks extends Component {
 
   componentWillMount(){
-   this.props.fetchTrucks(this.props.params.address);
+  // this.props.fetchTrucks(this.props.params.address);
   }
 
   renderLists(apiResponse){
@@ -23,14 +23,10 @@ import GoogleMapsTest from './google_map_test';
             if(element.Latitude === ""){
               element.Latitude = 37.7943310032468;
             }
-            console.log("element.Longitude: "+ element.Longitude);
-            console.log("element.Latitude: "+ element.Latitude);
+            console.log("element.Longitude: "+ element.longitude);
+            console.log("element.Latitude: "+ element.latitude);
             return (
-               <li key={element._id} className="list-group-item li-dim">{element.Address}
-                  <div className='google-map'>
-                      <GoogleMaps lon={element.Longitude} lat={element.Latitude} />
-                  </div>
-               </li>
+               <li key={element._id} className="list-group-item li-dim">{element.address}</li>
                )
        })
     )
@@ -38,26 +34,26 @@ import GoogleMapsTest from './google_map_test';
 
   render(){
     console.log(this.props.trucks);
-    const apiResponse = this.props.trucks;
-    // const apiResponse =
-    //   [
-    //     {
-    //     "address": "368 FELL ST",
-    //     "latitude": "37.7760487080922",
-    //     "longitude": "-122.423939211172",
-    //   },
-    //   {
-    //     "address": "716 TEHAMA ST",
-    //     "latitude": "37.7756237711242",
-    //     "longitude": "-122.411781357745",
-    //   }
-    // ];
+    //const apiResponse = this.props.trucks;
+    const apiResponse =
+      [
+        {
+        "address": "368 FELL ST",
+        "latitude": "37.7760487080922",
+        "longitude": "-122.423939211172",
+      },
+      {
+        "address": "716 TEHAMA ST",
+        "latitude": "37.7756237711242",
+        "longitude": "-122.411781357745",
+      }
+    ];
 
     return(
       <div>
-      
 
-        <GoogleMapsTest />
+      {this.renderLists(apiResponse)}
+
       </div>
     )
   }
