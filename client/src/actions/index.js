@@ -9,15 +9,14 @@ export const FETCH_TRUCKS = 'fetch_trucks';
 
 export function getLatLong(address){
   const urlForLatLong = `${LOCALHOST_URL}/${address}`;
-  const requestForLatLong = axios.get(urlForLatLong);
-  requestForLatLong.then((resp) => {
-    console.log('Lat and Long: ' , resp);
-      const lat = resp.data.Latitude;
-      const long = resp.data.Longitude;
-
-  })
+  const request = axios.get(urlForLatLong);
+  console.log("Request :", request);
   return {
-    type:FETCH_TRUCKS,
+    type:GET_LAT_LONG,
     payload:request
   }
+}
+
+export function fetchTrucks(lat, long){
+
 }
