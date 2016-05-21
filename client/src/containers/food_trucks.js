@@ -1,42 +1,42 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getLatLong} from '../actions/index';
+import {fetchTrucks} from '../actions/index';
 
- class FoodTrucks extends Component {
+class FoodTrucks extends Component {
 
-   componentWillMount() {
-      this.props.getLatLong(this.props.params.address);
-
-   }
+  componentWillMount() {
+    this.props.fetchTrucks(37.5685247, -122.367428);
+  }
 
   renderLists(){
-
     return(
-        this.props.trucks.map(function(element){
-            return (
-               <li key={element.address} className="list-group-item li-dim">{element.address}</li>
-               )
-       })
+      this.props.trucks.map(function(element){
+        console.log("element: ", typeof element);
+        return (
+          <li key={element.address} className="list-group-item li-dim">{element.address}</li>
+        )
+      })
     )
   }
 
   render(){
-    console.log('props again'+ JSON.stringify(this.props.location));
+
+
     return(
       <ul className = "list-group col-sm-4">
-        {this.renderLists()}
+      {this.renderLists()}
       </ul>
     )
   }
 }
 function mapStateToProps(state){
-  console.log('State:' , state)
-  return {trucks: state.trucks, location: state.location}
+  console.log('State:' , state  )
+  return {trucks: state.trucks}
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({getLatLong}, dispatch);
+  return bindActionCreators({ fetchTrucks }, dispatch);
 }
 
 

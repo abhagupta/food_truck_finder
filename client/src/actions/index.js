@@ -10,7 +10,6 @@ export const FETCH_TRUCKS = 'fetch_trucks';
 export function getLatLong(address){
   const urlForLatLong = `${LOCALHOST_URL}/${address}`;
   const request = axios.get(urlForLatLong);
-  console.log("Request :", request);
   return {
     type:GET_LAT_LONG,
     payload:request
@@ -18,5 +17,13 @@ export function getLatLong(address){
 }
 
 export function fetchTrucks(lat, long){
-
+ const url = `${ROOT_URL}?$where=within_circle(location,${lat},${long}, 100000)`;
+ const config = {
+          headers: {'X-App-Token': API_KEY}
+  };
+  const request = axios.get(url, config);
+  return {
+   type:FETCH_TRUCKS,
+   payload:request
+ }
 }
