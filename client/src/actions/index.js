@@ -9,6 +9,7 @@ export const FETCH_TRUCKS = 'fetch_trucks';
 
 export function getLatLong(address){
   const urlForLatLong = `${LOCALHOST_URL}/${address}`;
+
   const request = axios.get(urlForLatLong);
   return {
     type:GET_LAT_LONG,

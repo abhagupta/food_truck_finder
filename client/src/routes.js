@@ -8,6 +8,7 @@ import SearchFoodTrucks from './components/search_food_trucks';
 export default(
   <Route path="/" component={App} >
       <IndexRoute component={SearchFoodTrucks}/>
-      <Route path="/foodTrucks/location_address/:address" component={FoodTrucks} />
+      <Route path="/foodTrucks/location_address/:lat/:long" component={FoodTrucks} />
+                  
   </Route>
 )

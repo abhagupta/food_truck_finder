@@ -6,13 +6,13 @@ import {fetchTrucks} from '../actions/index';
 class FoodTrucks extends Component {
 
   componentWillMount() {
-    this.props.fetchTrucks(37.5685247, -122.367428);
+    this.props.fetchTrucks(this.props.params.lat, this.props.params.long);
   }
 
   renderLists(){
     return(
       this.props.trucks.map(function(element){
-        console.log("element: ", typeof element);
+        //console.log("element: ", element.adress);
         return (
           <li key={element.address} className="list-group-item li-dim">{element.address}</li>
         )
