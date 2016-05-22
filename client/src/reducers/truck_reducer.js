@@ -1,11 +1,18 @@
-import {FETCH_TRUCKS} from '../actions/index';
+import FETCH_TRUCKS from '../actions/index';
 
-const INITIAL_STATE = {all:[]} // ask this.
-
-export default function(state=INITIAL_STATE, action){
+export default function(state = [], action) {
   switch(action.type){
-    case FETCH_TRUCKS:
-    return {...state, all:action.payload.data} // ask this.
+    case 'fetch_trucks':
+    return action.payload.data;
   }
   return state;
+
 }
+
+
+// return [
+//   {address : '1277 EL Camino, Burlingame'},
+//   {address : '564 Anchor Circle, Redwoood Shores'},
+//   {address : '850 Cherry Avenue, San Bruno'},
+//   {address : '950 Elm Street, San Bruno'}
+// ]
