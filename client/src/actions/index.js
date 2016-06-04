@@ -6,6 +6,7 @@ const API_KEY = "XBATFlFkQlwEHtiHPzkyEuMfz";
 
 export const GET_LAT_LONG = 'get_lat_long';
 export const FETCH_TRUCKS = 'fetch_trucks';
+export const LAT_LONG_RECIEVED = 'lat_long_recieved';
 
 export function getLatLong(address){
   const urlForLatLong = `${LOCALHOST_URL}/${address}`;
@@ -27,4 +28,10 @@ export function fetchTrucks(lat, long){
    type:FETCH_TRUCKS,
    payload:request
  }
+}
+
+export function setLatLongReceived() {
+  return {
+    type: LAT_LONG_RECIEVED
+  }
 }
