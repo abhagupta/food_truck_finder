@@ -25,8 +25,8 @@ class FoodTrucks extends Component {
         $push: [
           {
             position: {
-              lat: 25.99,
-              lng: 122.9,
+              lat: this.props.params.lat,
+              lng: this.props.params.long,
             },
             defaultAnimation: 2,
             key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
