@@ -12,13 +12,13 @@ import { GoogleMapLoader, GoogleMap, Marker } from "react-google-maps";
  */
 
 const SimpleMap = props => (
-  <section style={{ height: `100%` }}>
+  <section style={{ height: `600px` }}>
     <GoogleMapLoader
       containerElement={
         <div
           {...props.containerElementProps}
           style={{
-            height: `100%`,
+            height: `600px`
           }}
         />
       }
@@ -26,7 +26,7 @@ const SimpleMap = props => (
         <GoogleMap
           ref={(map) => console.log(map)}
           defaultZoom={3}
-          defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+          defaultCenter={{ lat: 37.5685247, lng: -122.367428 }}
           onClick={props.onMapClick}
         >
           {props.markers.map((marker, index) => (
