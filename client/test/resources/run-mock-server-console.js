@@ -17,8 +17,9 @@ var shifu = require('@walmart/shifu');
 shifu.start({
   port:8000,
   mockedDirectory: './test/mocked-data',
-  useRecorder: true,
-  backendServers : ["http://localhost:3080", "https://data.sfgov.org/resource/6a9r-agq8.json"]
+  useRecorder: false,
+  targetServers : ["http://localhost:3080"]
+
 
 });
 

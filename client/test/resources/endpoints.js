@@ -17,24 +17,35 @@ shifu.route({
     //shifu.util.respondWithFile(this, reply, {code: 202});
     reply("Hello world");
   }
+});
+
+shifu.route({
+  id: 'welcome_message',
+  label: 'welcome message',
+  path: '/welcome_message',
+  config: {
+      cors: corsHeaders
+    },
+
+  variantLabel: 'default',
+  handler: function (req, reply) {
+    shifu.util.respondWithFile(this, reply);
+    //reply("Hello world");
+  }
+})
+
+shifu.route({
+  id: 'location_address',
+  label: 'location_address',
+  path: '/location_address/94010',
+  config: {
+     cors: corsHeaders
+   },
+  variantLabel: 'default',
+  handler: function (req, reply) {
+    shifu.util.respondWithFile(this, reply, {code: 202});
+    //reply("Hello world");
+  }
 })
 
 
-shifu.route({
-  id: 'latLong',
-  label: 'LatLong',
-   path: '/location_address/94010',
-   config: {
-          cors: corsHeaders
-        },
-
-  variantLabel: 'default'
-}).respondWithFile()
-
-  .variant({
-    id: 'discount',
-    label: 'Get Discount Collection',
-    handler: function (req, reply) {
-      reply({message: 'hello pre-order'});
-    }
-  }).respondWithFile();
