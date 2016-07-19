@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import {fetchTrucks} from '../actions/index';
 import SimpleMap from '../components/google_map_test';
 
+
+
 import { default as update } from "react-addons-update";
 
 class FoodTrucks extends Component {
@@ -38,7 +40,12 @@ class FoodTrucks extends Component {
   }
 
   componentWillMount() {
-    this.props.fetchTrucks(this.props.params.lat, this.props.params.long);
+    // add mocks logic here
+     var lat = this.props.params.lat;
+     var long = this.props.params.long;
+
+
+   this.props.fetchTrucks(lat, long);
   }
 
   _handle_map_click(event) {

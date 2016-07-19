@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators, dispatch} from 'redux';
-import {getLatLong, setLatLongReceived} from '../actions/index';
+import {getLatLong, setLatLongReceived, fetchMockedLatLong} from '../actions/index';
 
 class SearchFoodTrucks extends Component {
 
@@ -21,7 +21,9 @@ class SearchFoodTrucks extends Component {
 
   onSubmitForm(event){
     event.preventDefault();
-    const latLongPromise = this.props.getLatLong(this.state.location);
+   // const  latLongPromise = this.props.getLatLong(this.state.location);
+   const  latLongPromise = this.props.fetchMockedLatLong(this.state.location);
+
     latLongPromise.then(function(result){
         //dispatch(setLatLongReceived);
         this.context.router.push('/foodTrucks/location_address/'+result.payload.data.Latitude+"/" + result.payload.data.Longitude);
@@ -42,6 +44,6 @@ class SearchFoodTrucks extends Component {
 
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({getLatLong, setLatLongReceived}, dispatch);
+  return bindActionCreators({getLatLong, setLatLongReceived, fetchMockedLatLong}, dispatch);
 }
 export default connect(null, mapDispatchToProps)(SearchFoodTrucks)

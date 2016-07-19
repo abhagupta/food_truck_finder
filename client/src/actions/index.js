@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const ROOT_URL="https://data.sfgov.org/resource/6a9r-agq8.json";
 const LOCALHOST_URL ="http://localhost:3080/location_address";
+const MOCKED_LOCALHOST_URL ="http://dev.walmart.com:8000/location_address";
 const API_KEY = "XBATFlFkQlwEHtiHPzkyEuMfz";
 
 export const GET_LAT_LONG = 'get_lat_long';
@@ -12,6 +13,7 @@ export function getLatLong(address){
   const urlForLatLong = `${LOCALHOST_URL}/${address}`;
 
   const request = axios.get(urlForLatLong);
+ 
   return {
     type:GET_LAT_LONG,
     payload:request
@@ -33,5 +35,16 @@ export function fetchTrucks(lat, long){
 export function setLatLongReceived() {
   return {
     type: LAT_LONG_RECIEVED
+  }
+}
+
+
+export function fetchMockedLatLong(address){
+  const urlForLatLong = `${MOCKED_LOCALHOST_URL}/${address}`; //localhost:8000/location_address/94010
+
+  const request = axios.get(urlForLatLong);
+  return {
+    type:GET_LAT_LONG,
+    payload:request
   }
 }
