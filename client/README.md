@@ -30,11 +30,13 @@ shifu.start({
      port:8000,
      mockedDirectory: './test/mocked-data',
      useRecorder: false,
-     targetServers : ["http://localhost:3080"]
+     targetServers : ["http://localhost:3080"]  // this is your backened server which is providing you backend API response.
    });
 
 ```
 
-The `useRecorder:true` will enable recording. This should be done the first time when you would want to mock the API of the target servers.
+The `useRecorder:true` will enable recording. This should be done the first time when you would want to mock the API of the target servers. Also note that, in your app, you need to point to
+shifu at port 8000 (if thats the port you are using for shifu). So for example, if you are trying to hit an api   http://localhost:3080/welcome_message, your endpoint front end app should be pointing to
+http://localhost:8000/welcome_message now. So that shifu can just let the request go through but capture the response coming from the backend server.
 
 Once you are done with recording, change this to false.
