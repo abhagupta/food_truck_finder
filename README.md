@@ -1,6 +1,10 @@
-# food_truck_finder
+# Sample app to demonstrate shifu recorder feature.
 
-App to retrieve closest food trucks near a given address.
+This project can be used to demonstrate shifu api recording functionality. This is a simple react project which will find food trucks near you.
+There are API services which are called from front end to backend are recorded and used for front end after first run.
+
+To install this project, do following :
+
 
 ## Client
 
