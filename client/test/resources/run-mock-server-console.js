@@ -15,13 +15,10 @@ var shifu = require('@walmart/shifu');
 //};
 
 shifu.start({
-  port:8000,
-  mockedDirectory: './test/mocked-data',
-  useRecorder: false,
-  targetServers : ["http://localhost:3080"]
-
+    port:8000,
+    mockedDirectory: './test/mocked-data',
+    useRecorder: true
 
 });
 
 //shifu.startRecording();
-

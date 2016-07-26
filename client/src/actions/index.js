@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const ROOT_URL="https://data.sfgov.org/resource/6a9r-agq8.json";
 //const LOCALHOST_URL ="http://localhost:5050/";
-const LOCALHOST_URL ="http://localhost:8000/";
+const LOCALHOST_URL ="http://localhost:3080/";
 const MOCKED_LOCALHOST_URL ="http://dev.walmart.com:8000/location_address";
 const API_KEY = "XBATFlFkQlwEHtiHPzkyEuMfz";
 
@@ -14,6 +14,8 @@ export const GET_WELCOME_MESSAGE = 'get_welcome_message';
 
 export function getWelcomeMessage(){
   const urlForWelcomeMessage = `${LOCALHOST_URL}welcome_message`;
+
+
 
   const request = axios.get(urlForWelcomeMessage);
 

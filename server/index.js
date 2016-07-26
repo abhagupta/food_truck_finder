@@ -13,8 +13,16 @@ app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.json({type:'*/*'}));
 
+
 const port = process.env.PORT || 3080;
 const server = http.createServer(app);
+
+app.use(function (req, res, next) {
+    res.header("Content-Type",'application/json');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 router(app);
 
