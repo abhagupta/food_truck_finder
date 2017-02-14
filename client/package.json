@@ -22,7 +22,6 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "@walmart/shifu": "^1.0.0",
     "axios": "^0.9.1",
     "babel-core": "^6.2.1",
     "babel-eslint": "^6.0.4",

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchTrucks} from '../actions/index';
 
-import { default as update } from "react-addons-update";
+//import { default as update } from "react-addons-update";
 
 class FoodTrucks extends Component {
 
